@@ -2,8 +2,9 @@
 
 LOCAL_REPO="$HOME/ubersultan"
 BOARD_CONFIG="$LOCAL_REPO/device/oneplus/bacon/BoardConfig.mk"
-KERNEL_INCLUDES="$LOCAL_REPO/kernel/oneplus/msm8974/include/linux"
-AK_KERNEL_URL="https://raw.githubusercontent.com/anarkia1976/AK-OnePone-Reborn"
+KERNEL_INCLUDES="$LOCAL_REPO/kernel/oneplus/msm8974/"
+AK_KERNEL_URL="https://github.com/anarkia1976/AK-OnePone-Reborn.git"
+LIBCORE_DIR="$LOCAL_REPO/libcore"
 
 pushd $(dirname "$BOARD_CONFIG")
 
@@ -16,8 +17,17 @@ popd
 
 exit 0
 
+# taking Google's fix for GCC 4.9 (https://android-review.googlesource.com/#/c/143200/) - cannot build tests, multiple compilation errors
+pushd "$LIBCORE_DIR"
+
+  git fetch https://android.googlesource.com/platform/libcore refs/changes/00/143200/5 && git cherry-pick FETCH_HEAD
+
+popd
+
+
+
 # trying to include GCC 5 support from AK kernel (to set Uber above to 5.1 version) - yet unsuccessfully
-pushd $KERNEL_INCLUDES"
+pushd "$KERNEL_INCLUDES"
 
   git remote add ak "$AK_KERNEL_URL"
   git fetch ak
