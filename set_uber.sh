@@ -24,8 +24,6 @@ pushd "$LIBCORE_DIR"
 
 popd
 
-
-
 # trying to include GCC 5 support from AK kernel (to set Uber above to 5.1 version) - yet unsuccessfully
 pushd "$KERNEL_INCLUDES"
 
