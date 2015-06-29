@@ -1,11 +1,13 @@
 #!/bin/bash
 
 LOCAL_REPO="$HOME/ubersultan"
-FRAMEWORKS_DIR="$LOCAL_REPO/frameworks/base"
 
-pushd "$FRAMEWORKS_DIR"
+# msm8974: Add missing adaptive playback tag
+pushd "$LOCAL_REPO/device/oppo/msm8974-common"
 
-  # taking frameworks CM commit - until Robbie merges it into UberCM, this will prevent build failure
-  git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_base refs/changes/30/100830/3 && git cherry-pick FETCH_HEAD
+  git remote add uber_oppo https://github.com/UberCM/device_oppo_msm8974-common.git
+  git fetch uber_oppo
+  git cherry-pick c5364da38326f7f179efe3d53c7f28dc9fbcfd31
+  git remote rm uber_oppo
 
 popd

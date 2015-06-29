@@ -6,12 +6,12 @@ SCRIPT_DIR="$(dirname $(readlink -f $0))"
 #$SCRIPT_DIR/cm2sultan.sh
 
 # turning Sultan's CPU underclock off
-#$SCRIPT_DIR/turn_off_underclock.sh
+$SCRIPT_DIR/turn_off_underclock.sh
 
 # setting custom camera as system one
 $SCRIPT_DIR/set_customcamera.sh
 
-# setting Uber version (currently works only for 4.8 - even 4.9 causes data alignmnt segfaults while working)
+# setting Uber version (currently works only for 4.8 - even 4.9 causes data alignment segfaults while working)
 $SCRIPT_DIR/set_uber.sh
 
 # copying old touchscreen firmware to kernel
