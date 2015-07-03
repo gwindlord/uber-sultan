@@ -17,5 +17,8 @@ $SCRIPT_DIR/set_uber.sh
 # copying old touchscreen firmware to kernel
 #$SCRIPT_DIR/touchscreen_drivers/copy_old_sultan_firmware.sh
 
+# setting GPS configuration for Belarus
+$SCRIPT_DIR/bel_gps/copy_gps_conf.sh
+
 # any additional actions
 $SCRIPT_DIR/additional.sh
