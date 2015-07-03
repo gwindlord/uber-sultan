@@ -15,7 +15,7 @@ $SCRIPT_DIR/set_customcamera.sh
 $SCRIPT_DIR/set_uber.sh
 
 # copying old touchscreen firmware to kernel
-$SCRIPT_DIR/touchscreen_drivers/copy_old_sultan_firmware.sh
+#$SCRIPT_DIR/touchscreen_drivers/copy_old_sultan_firmware.sh
 
 # any additional actions
 $SCRIPT_DIR/additional.sh
