@@ -3,7 +3,7 @@
 SCRIPT_DIR="$(dirname $(readlink -f $0))"
 
 # converting UberCM to UberSultan
-#$SCRIPT_DIR/cm2sultan.sh
+$SCRIPT_DIR/cm2sultan.sh
 
 # turning Sultan's CPU underclock off
 $SCRIPT_DIR/turn_off_underclock.sh
