@@ -12,6 +12,7 @@ $SCRIPT_DIR/turn_off_underclock.sh
 $SCRIPT_DIR/set_customcamera.sh
 
 # setting Uber version (currently works only for 4.8 - even 4.9 causes data alignment segfaults while working)
+# now taking some commits from DerRommeister and building kernel with 6.0 :)
 $SCRIPT_DIR/set_uber.sh
 
 # copying old touchscreen firmware to kernel
