@@ -4,6 +4,7 @@ LOCAL_REPO="$HOME/ubersultan"
 VERSION_FILE="$LOCAL_REPO/vendor/cm/config/version.mk"
 VENDOR_REPO="$LOCAL_REPO/vendor/cm"
 VENDORSETUP_FILE="vendorsetup.sh"
+MAKEFILE="core/Makefile"
 CONFIG_FILE="config/common.mk"
 BUILD_REPO="$LOCAL_REPO/build/"
 
@@ -23,7 +24,17 @@ pushd "$VENDOR_REPO"
   set +e
 popd
 
-pushd "$BUILD_REPO" && git revert 915bd50f21525f12b6784ffbc8a0ddb8e0c065f1 --no-edit && popd
+pushd "$BUILD_REPO"
+
+  # one more vendor/ubercm revert occurrence fix
+  sed -i 's#vendor/ubercm/#vendor/cm/#' "$MAKEFILE"
+
+  git add $(git status -s | awk '{print $2}')
+  git commit -m "Reverting one more vendor_cm -> vendor_ubercm"
+
+  git revert 915bd50f21525f12b6784ffbc8a0ddb8e0c065f1 --no-edit
+
+popd
 
 # setting UberSultan
 pushd $(dirname "$VERSION_FILE")
